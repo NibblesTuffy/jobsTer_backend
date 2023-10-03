@@ -39,7 +39,7 @@ const port = process.env.PORT || 5100
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URL)
-    app.listen(port, 'localhost',() => {
+    app.listen(port,() => {
       console.log(`server running on port ${port}..`)
     })
   } catch (error) {
