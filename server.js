@@ -35,11 +35,16 @@ app.use('/api/v1/toolkit/auth', authRouter)
 app.use(errorHandlerMiddleware)
 
 const port = process.env.PORT || 5100
-try {
-  await mongoose.connect(process.env.MONGODB_URL)
-  app.listen(port, () => {
-    console.log(`server running on port ${port}..`)
-  })
-} catch (error) {
-  console.log(`start error ${error}`)
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL)
+    app.listen(port, 'localhost',() => {
+      console.log(`server running on port ${port}..`)
+    })
+  } catch (error) {
+    console.log(`start error ${error}`)
+  }
 }
+
+connectDB()
