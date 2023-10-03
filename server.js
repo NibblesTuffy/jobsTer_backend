@@ -17,7 +17,7 @@ if (process.env.NODE_ENVIRONMENT === 'development') {
 }
 const corsOptions = {
   credentials: true,
-  origin: 'http://localhost:3000',
+  origin: 'https://jobster-frontend.onrender.com',
 }
 
 app.use(cors(corsOptions))
